@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>3D触摸滚动插件</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div id="ball">
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+        <a class="item" href="#">3D触摸滚动插件</a>
+    </div>
+    <script type="text/javascript" src="js/scroll-3d.js"></script>
+    <script type="text/javascript">
+        var wrap3D = document.getElementById('ball');
+        var radius = Math.min(wrap3D.offsetWidth, wrap3D.offsetHeight);
+        var setColor = function(x, y, z) {
+            if(radius / z > 0 && radius / z < 2.5){
+                if(!this.setFlag){
+                    this.classList.add('item-top');
+                    this.setFlag = true;
+                }
+            } else {
+                if(this.setFlag){
+                    this.classList.remove('item-top');
+                    this.setFlag = false;
+                }
+            }
+        };
+        [].slice.call(wrap3D.children).forEach(function(item) {
+            item.onScroll3D = setColor;
+        });
+        scroll_3D.init('#ball');
+    </script>
+</body>
+</html>
